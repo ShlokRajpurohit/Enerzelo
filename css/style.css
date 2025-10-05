@@ -1,0 +1,305 @@
+/* ================== ROOT: CSS VARIABLES (DAWN INSPIRED - HIGH CONTRAST) ================== */
+:root {
+  /* Core Colors (Deep Brown/Black for high contrast) */
+  --color-primary-dark: #33261C;        /* Deep Espresso Brown (Primary text/CTA) */
+  --color-text-light: #F7F7F7;          /* Near-White for hero text */
+  --color-text-muted: #8A8177;          /* Muted Taupe for captions/light details */
+  
+  /* Backgrounds */
+  --color-background-main: #FFFFFF;     /* Pure White (Dominant background) */
+  --color-background-contrast: #F7F7F7; /* Subtle off-white contrast (for product image area) */
+
+  /* Shadows (Minimal use - only for buttons) */
+  --shadow-button: 0 4px 10px rgba(0, 0, 0, 0.1); 
+
+  /* Typography Variables */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-hero: 'Playfair Display', serif; /* Hero text will be light, large serif */
+}
+
+/* ================== GENERAL RESET & TYPOGRAPHY ================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--color-background-main);
+    color: var(--color-cocoa);
+    line-height: 1.5;
+}
+
+a {
+    color: var(--color-cocoa);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+}
+
+/* ================== NAVBAR (MINIMALIST & TRANSPARENT) ================== */
+.navbar {
+    position: fixed; /* Fixed, not sticky, for clean overlap on hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent; /* Initially transparent */
+    transition: background-color 0.4s ease;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* FIX: LOGO SCALING (2X SIZE) */
+.logo img {
+    max-height: 50px; /* Doubled from 25px to 50px */
+    width: auto;
+    filter: invert(100%) brightness(1.5); /* Initially light logo over dark hero */
+    transition: filter 0.4s ease;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* CRITICAL: Forces horizontal layout */
+    gap: 25px; /* Spacing between links */
+}
+
+.nav-links a {
+    color: var(--color-text-light); /* Initially white links */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 25px;
+    position: relative;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.nav-icons {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+.nav-icons a {
+    color: var(--color-text-light);
+    margin-left: 15px;
+    font-size: 1.1rem;
+}
+
+/* STICKY/SCROLLED STATE */
+.navbar.scrolled {
+    background: var(--color-background-main); /* Becomes pure white when scrolled */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.navbar.scrolled .logo img {
+    filter: none; /* Logo returns to its original color */
+}
+
+.navbar.scrolled .nav-links a,
+.navbar.scrolled .nav-icons a {
+    color: var(--color-primary-dark); /* Links become dark */
+}
+
+/* ================== 1. HERO SECTION (HOMEPAGE) ================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Prominent, cinematic height */
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end; /* Align content to the bottom/center */
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/hero-cinematic.jpg') center/cover no-repeat;
+    background-size: cover; /* Fix 4: Ensures the hero image covers the full area */
+    background-position: center;
+    background-color: #3f5d72;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25); /* Subtle darkness for text readability */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding-bottom: 10vh; /* Push content up from the bottom edge */
+}
+
+.hero-title {
+    font-family: var(--font-hero);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: var(--color-text-light);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+}
+
+.hero-subtext {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+}
+
+.hero-cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--color-text-light);
+    color: var(--color-text-light);
+    background: transparent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+.hero-cta-btn:hover {
+    background-color: var(--color-text-light);
+    color: var(--color-primary-dark);
+}
+
+
+/* ================== 2. PRODUCT GRID SECTION (HOMEPAGE/PRODUCTS PAGE) ================== */
+
+.product-grid-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    /* 4 columns on desktop, adapts to 2 on smaller screen */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Generous space between products */
+}
+
+.product-item {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.product-visual {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; 
+    background-color: var(--color-background-contrast); 
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.product-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply; 
+}
+
+.product-visual:hover {
+    background-color: #e2e2e2; 
+}
+
+.product-sale-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--color-primary-dark);
+    color: var(--color-text-light);
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 5;
+}
+
+/* Product Details */
+.product-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    padding-top: 10px;
+}
+
+.product-details h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--color-primary-dark);
+}
+
+.product-price-current {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-top: auto; 
+}
+
+.product-price-old {
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+/* ================== FOOTER (Minimalist) ================== */
+.site-footer {
+    padding: 40px 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--color-background-main);
+    color: var(--color-primary-dark);
+    text-align: center;
+}
+.footer-text {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 600px) {
+    .nav-container {
+        padding: 15px 20px;
+    }
+    .nav-links {
+        display: none; 
+    }
+    .hero {
+        height: 80vh;
+    }
+    .hero-content {
+        padding-bottom: 15%;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; 
+    }
+}
