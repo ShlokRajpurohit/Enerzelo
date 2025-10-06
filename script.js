@@ -67,3 +67,23 @@ if (productItems.length > 0) {
         }
     });
 }
+
+// ================== 4. FEATURE BLOCKS STAGGERED REVEAL ==================
+
+const featureCards = document.querySelectorAll('.feature-blocks-section .feature-card');
+
+if (featureCards.length > 0) {
+    gsap.from(featureCards, {
+        opacity: 0,
+        y: 40,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".feature-blocks-section",
+            start: "top 85%",
+            once: true,
+        }
+    });
+}
+
