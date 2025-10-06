@@ -1,0 +1,456 @@
+/* ================== ROOT: CSS VARIABLES (DAWN INSPIRED - HIGH CONTRAST) ================== */
+:root {
+  /* Core Colors (Deep Brown/Black for high contrast) */
+  --color-primary-dark: #33261C;        /* Deep Espresso Brown (Primary text/CTA) */
+  --color-text-light: #F7F7F7;          /* Near-White for hero text */
+  --color-text-muted: #8A8177;          /* Muted Taupe for captions/light details */
+  
+  /* Backgrounds */
+  --color-background-main: #FFFFFF;     /* Pure White (Dominant background) */
+  --color-background-contrast: #F7F7F7; /* Subtle off-white contrast (for product image area) */
+
+  /* Shadows (Minimal use - only for buttons) */
+  --shadow-button: 0 4px 10px rgba(0, 0, 0, 0.1); 
+
+  /* Typography Variables */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-hero: 'Playfair Display', serif; /* Hero text will be light, large serif */
+}
+
+/* ================== GENERAL RESET & TYPOGRAPHY ================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* FIX: Ensure global corners are sharp */
+    border-radius: 0 !important; 
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--color-background-main);
+    color: var(--color-primary-dark); 
+    line-height: 1.5;
+}
+
+a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+}
+
+/* ================== NAVBAR (MINIMALIST & TRANSPARENT) ================== */
+.navbar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent; 
+    transition: background-color 0.4s ease;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO SCALING */
+.logo img {
+    max-height: 50px; 
+    width: auto;
+    filter: invert(100%) brightness(1.5); 
+    transition: filter 0.4s ease;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px; 
+}
+
+.nav-links a {
+    color: var(--color-text-light); 
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 25px;
+    position: relative;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.nav-icons {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+.nav-icons a {
+    color: var(--color-text-light);
+    margin-left: 15px;
+    font-size: 1.1rem;
+}
+
+/* STICKY/SCROLLED STATE */
+.navbar.scrolled {
+    background: var(--color-background-main); 
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.navbar.scrolled .logo img {
+    filter: none; 
+}
+
+.navbar.scrolled .nav-links a,
+.navbar.scrolled .nav-icons a {
+    color: var(--color-primary-dark); 
+}
+
+/* ================== 1. HERO SECTION (HOMEPAGE) ================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 90vh; 
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/hero-cinematic.jpg') center/cover no-repeat;
+    background-size: cover; 
+    background-position: center;
+    background-color: #3f5d72;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25); 
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding-bottom: 10vh; 
+}
+
+.hero-title {
+    font-family: var(--font-hero);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: var(--color-text-light);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+}
+
+.hero-subtext {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+}
+
+.hero-cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--color-text-light);
+    color: var(--color-text-light);
+    background: transparent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+.hero-cta-btn:hover {
+    background-color: var(--color-text-light);
+    color: var(--color-primary-dark);
+}
+
+
+/* ================== 2. PRODUCT GRID SECTION (HOMEPAGE/PRODUCTS PAGE) ================== */
+
+.product-grid-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    /* 4 columns on desktop, adapts to 2 on smaller screen */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; 
+}
+
+.product-item {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.product-visual {
+    position: relative;
+    width: 100%;
+    /* Aspect ratio for the product area */
+    padding-top: 100%; 
+    background-color: var(--color-background-contrast); 
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.product-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply; 
+}
+
+.product-visual:hover {
+    background-color: #e2e2e2; 
+}
+
+.product-sale-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--color-primary-dark);
+    color: var(--color-text-light);
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 5;
+}
+
+/* Product Details */
+.product-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    padding-top: 10px;
+}
+
+.product-details h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--color-primary-dark);
+}
+
+.product-price-current {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-top: auto; 
+}
+
+.product-price-old {
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+/* ================== FOOTER (Minimalist) ================== */
+.site-footer {
+    padding: 40px 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--color-background-main);
+    color: var(--color-primary-dark);
+    text-align: center;
+}
+.footer-text {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* ================== 3. LUXURY FEATURE BLOCKS SECTION ================== */
+
+.feature-blocks-section {
+    padding: 80px 40px; /* Vertical padding consistent with homepage */
+    background: var(--color-background-main); /* Pure white background */
+    text-align: center;
+}
+
+.feature-blocks-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.feature-section-heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    color: var(--color-primary-dark);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.feature-grid {
+    display: grid;
+    /* 4 equal columns on desktop, adapts to 2 or 1 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; 
+    align-items: flex-start; /* Ensures alignment starts from the top */
+}
+
+.feature-card {
+    /* Replicates the light grey box look */
+    background: var(--color-background-contrast); 
+    padding: 48px; /* Large internal padding */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: box-shadow 0.3s ease;
+}
+/* 
+.feature-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+} */
+
+.card-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary-dark); /* Dark icon color */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.feature-title {
+    /* Replicates the Clash Display/H4 style */
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 12px;
+}
+
+.feature-text {
+    /* Replicates the Satoshi/Body text style */
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-primary-dark);
+    line-height: 1.5;
+}
+
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 600px) {
+    .nav-container {
+        padding: 15px 20px;
+    }
+    .nav-links {
+        display: none; 
+    }
+    .hero {
+        height: 80vh;
+    }
+    .hero-content {
+        padding-bottom: 15%;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* ================== SVG & ICON STYLING FIX (Increased Size and Uniformity) ================== */
+
+/* Overrides the wrapper size to make icons double in prominence */
+.feature-blocks-section .card-icon-wrapper {
+    width: 55px; /* Large size for visual prominence */
+    height: 55px; 
+    color: var(--color-primary-dark); 
+    margin-bottom: 20px;
+    
+    /* Center the SVG perfectly inside the square wrapper */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-blocks-section .feature-svg {
+    width: 100%;
+    height: 100%;
+    /* currentColor ensures the SVG uses the CSS color property */
+    color: currentColor; 
+    transition: transform 0.3s ease;
+}
+/* 
+.feature-card:hover .feature-svg {
+    transform: scale(1.05);
+} */
+
+/* Ensure the paths inside the SVGs use the color correctly */
+.feature-svg path, .feature-svg rect {
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* Specific fix for the bar chart and glow icon which use stroke/fill combinations */
+.feature-svg:nth-child(2) path:first-child { 
+    fill: currentColor;
+    stroke: none;
+}
+
+/* ================== PRODUCT GRID CTA BUTTON STYLING ================== */
+
+/* Container for centering the button */
+.product-grid-cta-container {
+    padding-top: 40px; /* Space above the button */
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.product-grid-button {
+    /* Replicates the 'Button Medium' Auto Layout from the brief */
+    box-sizing: border-box;
+    display: inline-flex; /* Use inline-flex to center itself while being a flex container */
+    justify-content: center;
+    align-items: center;
+    
+    padding: 16px 32px;
+    border: 1px solid var(--color-primary-dark);
+    
+    background: var(--color-background-main); /* Light Grey / F9F9F9 equivalent */
+    
+    /* Text Styling (Satoshi/Montserrat and Dark Primary) */
+    font-family: var(--font-body);
+    font-weight: 400; /* Medium weight */
+    font-size: 1rem;
+    line-height: 1.5; 
+    color: var(--color-primary-dark); 
+    text-transform: capitalize; /* Ensure it doesn't look like an aggressive uppercase button */
+    
+    /* transition: background-color 0.3s ease; */
+}
+
+.product-grid-button:hover {
+    background: #303030;
+    color: var(--color-text-light); 
+
+}
