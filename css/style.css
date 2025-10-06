@@ -23,17 +23,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* FIX: Ensure global corners are sharp */
+    border-radius: 0 !important; 
 }
 
 body {
     font-family: var(--font-body);
     background: var(--color-background-main);
-    color: var(--color-cocoa);
+    color: var(--color-primary-dark); 
     line-height: 1.5;
 }
 
 a {
-    color: var(--color-cocoa);
+    color: var(--color-primary-dark);
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -46,12 +48,12 @@ h1, h2, h3, h4 {
 
 /* ================== NAVBAR (MINIMALIST & TRANSPARENT) ================== */
 .navbar {
-    position: fixed; /* Fixed, not sticky, for clean overlap on hero */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: transparent; /* Initially transparent */
+    background: transparent; 
     transition: background-color 0.4s ease;
 }
 
@@ -64,22 +66,22 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
-/* FIX: LOGO SCALING (2X SIZE) */
+/* LOGO SCALING */
 .logo img {
-    max-height: 50px; /* Doubled from 25px to 50px */
+    max-height: 50px; 
     width: auto;
-    filter: invert(100%) brightness(1.5); /* Initially light logo over dark hero */
+    filter: invert(100%) brightness(1.5); 
     transition: filter 0.4s ease;
 }
 
 .nav-links {
     list-style: none;
-    display: flex; /* CRITICAL: Forces horizontal layout */
-    gap: 25px; /* Spacing between links */
+    display: flex;
+    gap: 25px; 
 }
 
 .nav-links a {
-    color: var(--color-text-light); /* Initially white links */
+    color: var(--color-text-light); 
     text-transform: uppercase;
     font-size: 0.85rem;
     font-weight: 600;
@@ -105,27 +107,27 @@ h1, h2, h3, h4 {
 
 /* STICKY/SCROLLED STATE */
 .navbar.scrolled {
-    background: var(--color-background-main); /* Becomes pure white when scrolled */
+    background: var(--color-background-main); 
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
 }
 
 .navbar.scrolled .logo img {
-    filter: none; /* Logo returns to its original color */
+    filter: none; 
 }
 
 .navbar.scrolled .nav-links a,
 .navbar.scrolled .nav-icons a {
-    color: var(--color-primary-dark); /* Links become dark */
+    color: var(--color-primary-dark); 
 }
 
 /* ================== 1. HERO SECTION (HOMEPAGE) ================== */
 .hero {
     position: relative;
     width: 100%;
-    height: 90vh; /* Prominent, cinematic height */
+    height: 90vh; 
     overflow: hidden;
     display: flex;
-    align-items: flex-end; /* Align content to the bottom/center */
+    align-items: flex-end; 
     justify-content: center;
     text-align: center;
 }
@@ -136,7 +138,7 @@ h1, h2, h3, h4 {
     width: 100%;
     height: 100%;
     background: url('assets/hero-cinematic.jpg') center/cover no-repeat;
-    background-size: cover; /* Fix 4: Ensures the hero image covers the full area */
+    background-size: cover; 
     background-position: center;
     background-color: #3f5d72;
 }
@@ -144,13 +146,13 @@ h1, h2, h3, h4 {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.25); /* Subtle darkness for text readability */
+    background: rgba(0, 0, 0, 0.25); 
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
-    padding-bottom: 10vh; /* Push content up from the bottom edge */
+    padding-bottom: 10vh; 
 }
 
 .hero-title {
@@ -197,7 +199,7 @@ h1, h2, h3, h4 {
     display: grid;
     /* 4 columns on desktop, adapts to 2 on smaller screen */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px; /* Generous space between products */
+    gap: 40px; 
 }
 
 .product-item {
@@ -210,6 +212,7 @@ h1, h2, h3, h4 {
 .product-visual {
     position: relative;
     width: 100%;
+    /* Aspect ratio for the product area */
     padding-top: 100%; 
     background-color: var(--color-background-contrast); 
     margin-bottom: 15px;
@@ -285,6 +288,77 @@ h1, h2, h3, h4 {
     color: var(--color-text-muted);
 }
 
+/* ================== 3. LUXURY FEATURE BLOCKS SECTION ================== */
+
+.feature-blocks-section {
+    padding: 80px 40px; /* Vertical padding consistent with homepage */
+    background: var(--color-background-main); /* Pure white background */
+    text-align: center;
+}
+
+.feature-blocks-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.feature-section-heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    color: var(--color-primary-dark);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.feature-grid {
+    display: grid;
+    /* 4 equal columns on desktop, adapts to 2 or 1 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; 
+    align-items: flex-start; /* Ensures alignment starts from the top */
+}
+
+.feature-card {
+    /* Replicates the light grey box look */
+    background: var(--color-background-contrast); 
+    padding: 48px; /* Large internal padding */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: box-shadow 0.3s ease;
+}
+/* 
+.feature-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+} */
+
+.card-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary-dark); /* Dark icon color */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.feature-title {
+    /* Replicates the Clash Display/H4 style */
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 12px;
+}
+
+.feature-text {
+    /* Replicates the Satoshi/Body text style */
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-primary-dark);
+    line-height: 1.5;
+}
+
+
 /* --- Mobile Adjustments --- */
 @media (max-width: 600px) {
     .nav-container {
@@ -302,4 +376,81 @@ h1, h2, h3, h4 {
     .product-grid {
         grid-template-columns: 1fr; 
     }
+}
+
+/* ================== SVG & ICON STYLING FIX (Increased Size and Uniformity) ================== */
+
+/* Overrides the wrapper size to make icons double in prominence */
+.feature-blocks-section .card-icon-wrapper {
+    width: 55px; /* Large size for visual prominence */
+    height: 55px; 
+    color: var(--color-primary-dark); 
+    margin-bottom: 20px;
+    
+    /* Center the SVG perfectly inside the square wrapper */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-blocks-section .feature-svg {
+    width: 100%;
+    height: 100%;
+    /* currentColor ensures the SVG uses the CSS color property */
+    color: currentColor; 
+    transition: transform 0.3s ease;
+}
+/* 
+.feature-card:hover .feature-svg {
+    transform: scale(1.05);
+} */
+
+/* Ensure the paths inside the SVGs use the color correctly */
+.feature-svg path, .feature-svg rect {
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* Specific fix for the bar chart and glow icon which use stroke/fill combinations */
+.feature-svg:nth-child(2) path:first-child { 
+    fill: currentColor;
+    stroke: none;
+}
+
+/* ================== PRODUCT GRID CTA BUTTON STYLING ================== */
+
+/* Container for centering the button */
+.product-grid-cta-container {
+    padding-top: 40px; /* Space above the button */
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.product-grid-button {
+    /* Replicates the 'Button Medium' Auto Layout from the brief */
+    box-sizing: border-box;
+    display: inline-flex; /* Use inline-flex to center itself while being a flex container */
+    justify-content: center;
+    align-items: center;
+    
+    padding: 16px 32px;
+    border: 1px solid var(--color-primary-dark);
+    
+    background: var(--color-background-main); /* Light Grey / F9F9F9 equivalent */
+    
+    /* Text Styling (Satoshi/Montserrat and Dark Primary) */
+    font-family: var(--font-body);
+    font-weight: 400; /* Medium weight */
+    font-size: 1rem;
+    line-height: 1.5; 
+    color: var(--color-primary-dark); 
+    text-transform: capitalize; /* Ensure it doesn't look like an aggressive uppercase button */
+    
+    /* transition: background-color 0.3s ease; */
+}
+
+.product-grid-button:hover {
+    background: #303030;
+    color: var(--color-text-light); 
+
 }
