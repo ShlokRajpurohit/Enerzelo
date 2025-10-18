@@ -21,34 +21,46 @@ ScrollTrigger.create({
     }
 });
 
-// 2. HERO CTA HOVER (Minimalist Bouncing)
-const heroCta = document.querySelector('.hero-cta-btn');
+// 2. BUTTON HOVER EFFECTS (Minimalist Bouncing)
+function addButtonHoverEffect(button) {
+    if (button) {
+        button.addEventListener('mousemove', (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
 
-if (heroCta) {
-    heroCta.addEventListener('mousemove', (e) => {
-        const rect = heroCta.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        gsap.to(heroCta, {
-            x: x * 0.1, // Subtle inertia
-            y: y * 0.1,
-            scale: 1.02,
-            ease: "power1.out",
-            duration: 0.3
+            gsap.to(button, {
+                x: x * 0.1, // Subtle inertia
+                y: y * 0.1,
+                scale: 1.02,
+                ease: "power1.out",
+                duration: 0.3
+            });
         });
-    });
 
-    heroCta.addEventListener('mouseleave', () => {
-        gsap.to(heroCta, {
-            x: 0,
-            y: 0,
-            scale: 1,
-            ease: "elastic.out(1, 0.5)",
-            duration: 0.6
+        button.addEventListener('mouseleave', () => {
+            gsap.to(button, {
+                x: 0,
+                y: 0,
+                scale: 1,
+                ease: "elastic.out(1, 0.5)",
+                duration: 0.6
+            });
         });
-    });
+    }
 }
+
+// Apply hover effects to all important buttons
+const heroCta = document.querySelector('.hero-cta-btn');
+const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+const addToCartHero = document.querySelector('.add-to-cart-hero');
+const productGridButton = document.querySelector('.product-grid-button');
+
+// Apply effects to all buttons
+addButtonHoverEffect(heroCta);
+addToCartButtons.forEach(button => addButtonHoverEffect(button));
+addButtonHoverEffect(addToCartHero);
+addButtonHoverEffect(productGridButton);
 
 // 3. PRODUCT GRID STAGGERED REVEAL (for both homepage and products page)
 const productItems = document.querySelectorAll('.product-grid-section .product-item');

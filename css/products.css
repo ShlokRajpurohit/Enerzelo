@@ -1,0 +1,135 @@
+/* ================== PRODUCTS PAGE STYLES (Modular Component) ================== */
+
+/* ---Navbar--- */
+
+
+/* --- Page Hero Top Overrides --- */
+.page-hero-top {
+    /* Uses main background and sets up generous top padding to clear fixed header */
+    background: var(--color-background-main); 
+    padding: 120px 40px 40px 40px; 
+    text-align: center;
+}
+
+.page-title-heading {
+    /* Inherits font-heading but needs specific spacing */
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 900;
+    color: var(--color-primary-dark);
+    margin-bottom: 15px;
+}
+
+.page-subtitle-main {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Focused Sale Grid Layout --- */
+.product-grid-section {
+    padding: 50px 40px 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-grid.focused-sale-grid {
+    /* CRITICAL: Enforce only two columns with generous spacing, centered */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 950px; 
+    margin: 40px auto 0;
+    gap: 50px; 
+}
+
+/* Product Card Sizing and Details */
+.product-item {
+    /* Ensures items are aligned at the bottom using Flexbox (inherited from global styles) */
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    text-align: left;
+}
+
+.product-visual {
+    /* Ensures the visual wrapper uses contrast background */
+    background-color: var(--color-background-contrast);
+}
+
+.product-details {
+    flex-grow: 1; /* Allows details block to fill available height */
+    padding-top: 20px;
+}
+
+.product-details h3 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+/* Price block styling (for sale price emphasis) */
+.product-price-current {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-top: auto; /* Pushes price to the bottom */
+}
+
+.product-price-old {
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-right: 8px;
+}
+
+/* Sale Tag Styling */
+.product-sale-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--color-primary-dark);
+    color: var(--color-text-light);
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 5;
+}
+
+/* CTA Button Container */
+.product-grid-cta-container {
+    padding-top: 40px; 
+    text-align: center;
+}
+
+.product-grid-button {
+    border: 1px solid var(--color-primary-dark); 
+    background: var(--color-background-main);
+    color: var(--color-primary-dark); 
+    padding: 16px 32px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.product-grid-button:hover {
+    background: var(--color-background-contrast);
+}
+
+/* Add to Cart Button for Products Page */
+.focused-sale-grid .add-to-cart-btn {
+    margin-top: 20px;
+}
+
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 768px) {
+    .product-grid.focused-sale-grid {
+        grid-template-columns: 1fr; /* Stack on mobile */
+        max-width: 400px;
+        gap: 30px;
+    }
+    .page-hero-top {
+        padding-top: 100px !important;
+    }
+}

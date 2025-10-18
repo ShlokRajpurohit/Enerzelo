@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Protein Energy Bites | Enerzelo</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bites-description.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/script.js" defer></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/4b8dce74a6.js" crossorigin="anonymous"></script>
+</head>
+<body class="page-starts-light">
+  
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/enerzelo-logo-4.png" alt="Enerzelo Logo" />
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="#"><i class="fas fa-shopping-bag"></i>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 15C5.55228 15 6 14.5523 6 14C6 13.4477 5.55228 13 5 13C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15Z" fill="currentColor"/>
+        <path d="M12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15Z" fill="currentColor"/>
+        <path d="M14 3.50001H2.91L2.5 1.40001C2.47662 1.28537 2.41379 1.18256 2.32243 1.10947C2.23107 1.03639 2.11697 0.997651 2 1.00001H0V2.00001H1.59L3.5 11.6C3.52338 11.7146 3.58621 11.8175 3.67757 11.8905C3.76893 11.9636 3.88303 12.0024 4 12H13V11H4.41L4 9.00001H13C13.1156 9.00284 13.2286 8.96552 13.3197 8.89441C13.4109 8.8233 13.4746 8.7228 13.5 8.61001L14.5 4.11001C14.5168 4.03582 14.5164 3.95879 14.4989 3.88478C14.4814 3.81076 14.4472 3.74172 14.399 3.6829C14.3508 3.62407 14.2898 3.57703 14.2206 3.54534C14.1515 3.51364 14.076 3.49814 14 3.50001ZM12.6 8.00001H3.81L3.11 4.50001H13.375L12.6 8.00001Z" fill="currentColor"/>
+        </svg>
+        </a>
+        <a href="#"><i class="fas fa-shopping-bag"></i>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="16" height="16" fill="none" style="mix-blend-mode:multiply"/>
+  <path d="M8 4C7.50555 4 7.0222 4.14662 6.61108 4.42133C6.19995 4.69603 5.87952 5.08648 5.6903 5.54329C5.50108 6.00011 5.45158 6.50277 5.54804 6.98773C5.6445 7.47268 5.88261 7.91814 6.23224 8.26777C6.58187 8.6174 7.02733 8.8555 7.51228 8.95196C7.99723 9.04843 8.4999 8.99892 8.95671 8.8097C9.41353 8.62048 9.80397 8.30005 10.0787 7.88893C10.3534 7.4778 10.5 6.99445 10.5 6.5C10.5 5.83696 10.2366 5.20107 9.76777 4.73223C9.29893 4.26339 8.66304 4 8 4ZM8 8C7.70333 8 7.41332 7.91203 7.16665 7.7472C6.91997 7.58238 6.72772 7.34811 6.61418 7.07403C6.50065 6.79994 6.47095 6.49834 6.52882 6.20736C6.5867 5.91639 6.72956 5.64912 6.93934 5.43934C7.14912 5.22956 7.4164 5.0867 7.70737 5.02882C7.99834 4.97094 8.29994 5.00065 8.57403 5.11418C8.84812 5.22771 9.08239 5.41997 9.24721 5.66664C9.41203 5.91332 9.5 6.20333 9.5 6.5C9.49955 6.89769 9.34137 7.27896 9.06017 7.56016C8.77896 7.84137 8.39769 7.99955 8 8Z" fill="currentColor"/>
+  <path d="M8 1C6.61553 1 5.26216 1.41054 4.11101 2.17971C2.95987 2.94888 2.06266 4.04213 1.53285 5.32122C1.00303 6.6003 0.86441 8.00776 1.13451 9.36563C1.4046 10.7235 2.07129 11.9708 3.05026 12.9497C4.02922 13.9287 5.2765 14.5954 6.63437 14.8655C7.99224 15.1356 9.3997 14.997 10.6788 14.4672C11.9579 13.9373 13.0511 13.0401 13.8203 11.889C14.5895 10.7378 15 9.38447 15 8C14.9979 6.14413 14.2597 4.36486 12.9474 3.05256C11.6351 1.74026 9.85588 1.00209 8 1ZM5 13.1882V12.5C5.00044 12.1023 5.15862 11.721 5.43983 11.4398C5.72104 11.1586 6.10231 11.0004 6.5 11H9.5C9.89769 11.0004 10.279 11.1586 10.5602 11.4398C10.8414 11.721 10.9996 12.1023 11 12.5V13.1882C10.0896 13.7199 9.05426 14 8 14C6.94574 14 5.91042 13.7199 5 13.1882ZM11.9963 12.4629C11.9863 11.807 11.7191 11.1813 11.2521 10.7206C10.7852 10.2599 10.156 10.0011 9.5 10H6.5C5.84405 10.0011 5.2148 10.2599 4.74786 10.7206C4.28093 11.1813 4.01369 11.807 4.00375 12.4629C3.09703 11.6533 2.45762 10.5873 2.17017 9.40623C1.88272 8.22513 1.9608 6.98457 2.39407 5.84883C2.82734 4.71309 3.59536 3.73573 4.59644 3.04618C5.59751 2.35663 6.78442 1.98741 8 1.98741C9.21558 1.98741 10.4025 2.35663 11.4036 3.04618C12.4046 3.73573 13.1727 4.71309 13.6059 5.84883C14.0392 6.98457 14.1173 8.22513 13.8298 9.40623C13.5424 10.5873 12.903 11.6533 11.9963 12.4629Z" fill="currentColor"/>
+</svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Product Hero Section -->
+    <section class="product-hero">
+      <div class="product-hero-container">
+        <div class="product-hero-content">
+          <div class="product-breadcrumb">
+            <a href="index.html">Home</a> / <a href="products.html">Products</a> / <span>Plant Protein Energy Bites</span>
+          </div>
+          
+          <h1 class="product-title">Plant Protein Energy Bites</h1>
+          <p class="product-subtitle">Premium plant-based protein in every bite. Natural, nutritious, and delicious.</p>
+          
+          <div class="product-price-section">
+            <div class="price-container">
+              <span class="price-old">₹1,300</span>
+              <span class="price-current">₹650</span>
+              <span class="price-discount">50% OFF</span>
+            </div>
+            <p class="price-note">Limited time offer</p>
+            
+            <div class="quantity-and-cart">
+              <div class="quantity-selector">
+                <label for="quantity">Quantity</label>
+                <div class="quantity-controls">
+                  <button class="quantity-btn minus">-</button>
+                  <input type="number" id="quantity" value="1" min="1" max="10">
+                  <button class="quantity-btn plus">+</button>
+                </div>
+              </div>
+              
+              <button class="add-to-cart-hero">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-image-container">
+          <div class="product-image-wrapper">
+            <img src="assets/protein-bars-placeholder.png" alt="Plant Protein Energy Bites" class="product-main-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Product Details Section -->
+    <section class="product-details-section">
+      <div class="product-details-container">
+        
+        <div class="product-info-grid">
+          
+          <!-- Left Column: Product Info -->
+          <div class="product-info-column">
+            <div class="product-description">
+              <h2>About This Product</h2>
+              <p>Our Plant Protein Energy Bites are crafted with the finest natural ingredients, delivering 15g of complete plant protein per serving. Made with premium pea protein, organic dates, and natural nuts, these bites provide sustained energy without any artificial additives.</p>
+              
+              <p>Perfect for busy professionals, fitness enthusiasts, or anyone seeking a healthy snack that doesn't compromise on taste. Each bite is carefully formulated to support your active lifestyle while maintaining the highest standards of purity and nutrition.</p>
+            </div>
+
+            <div class="product-features">
+              <h3>Key Features</h3>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> 15g complete plant protein per serving</li>
+                <li><i class="fas fa-check"></i> 100% natural ingredients</li>
+                <li><i class="fas fa-check"></i> No artificial preservatives or colors</li>
+                <li><i class="fas fa-check"></i> Gluten-free and dairy-free</li>
+                <li><i class="fas fa-check"></i> Rich in fiber and essential nutrients</li>
+                <li><i class="fas fa-check"></i> Lab-tested for purity and quality</li>
+              </ul>
+            </div>
+
+            <div class="nutrition-info">
+              <h3>Nutritional Information</h3>
+              <div class="nutrition-grid">
+                <div class="nutrition-item">
+                  <span class="nutrition-label">Protein</span>
+                  <span class="nutrition-value">15g</span>
+                </div>
+                <div class="nutrition-item">
+                  <span class="nutrition-label">Fiber</span>
+                  <span class="nutrition-value">8g</span>
+                </div>
+                <div class="nutrition-item">
+                  <span class="nutrition-label">Calories</span>
+                  <span class="nutrition-value">180</span>
+                </div>
+                <div class="nutrition-item">
+                  <span class="nutrition-label">Sugar</span>
+                  <span class="nutrition-value">12g</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Empty for now -->
+          <div class="purchase-column">
+            <!-- Empty column to maintain layout -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="ingredients-section">
+      <div class="ingredients-container">
+        <h2>Natural Ingredients</h2>
+        <p class="ingredients-subtitle">Every ingredient is carefully selected for its nutritional value and natural goodness.</p>
+        
+        <div class="ingredients-grid">
+          <div class="ingredient-item">
+            <div class="ingredient-icon">🥜</div>
+            <h4>Pea Protein</h4>
+            <p>Complete plant protein with all essential amino acids</p>
+          </div>
+          <div class="ingredient-item">
+            <div class="ingredient-icon">🌰</div>
+            <h4>Organic Dates</h4>
+            <p>Natural sweetener rich in fiber and minerals</p>
+          </div>
+          <div class="ingredient-item">
+            <div class="ingredient-icon">🥥</div>
+            <h4>Almonds</h4>
+            <p>Healthy fats and vitamin E for sustained energy</p>
+          </div>
+          <div class="ingredient-item">
+            <div class="ingredient-icon">🌾</div>
+            <h4>Oats</h4>
+            <p>Complex carbohydrates for lasting fuel</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top-content">
+      <div class="footer-col-group">
+        
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="bites-description.html">Plant Protein Energy Bites</a></li>
+            <li><a href="#">Plant Protein Energy Mix</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns & Exchanges</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom-tier">
+      <p class="footer-copyright">
+        &copy; 2025 Enerzelo LTD. All Rights Reserved.
+      </p>
+      
+      <div class="social-links">
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Quantity counter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const quantityInput = document.getElementById('quantity');
+      const minusBtn = document.querySelector('.quantity-btn.minus');
+      const plusBtn = document.querySelector('.quantity-btn.plus');
+
+      minusBtn.addEventListener('click', function() {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+          quantityInput.value = currentValue - 1;
+        }
+      });
+
+      plusBtn.addEventListener('click', function() {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < 10) {
+          quantityInput.value = currentValue + 1;
+        }
+      });
+
+      quantityInput.addEventListener('input', function() {
+        let value = parseInt(this.value);
+        if (value < 1) this.value = 1;
+        if (value > 10) this.value = 10;
+      });
+    });
+  </script>
+
+</body>
+</html>
